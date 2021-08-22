@@ -1,0 +1,29 @@
+<%= form_for(@post) do |f| %>
+  <%= f.fields_for :user do |ff| %>
+    <%= ff.label :name, I18n.t("user_name") %>
+    <%= ff.text_field :name, required: true, class: "form-control" %>
+  <% end %>
+
+  <%= f.fields_for :menu do |ff| %>
+    <%= ff.fields_for :store do |fff| %>
+      <%= fff.label :name, I18n.t("store_name") %>
+      <%= fff.text_field :name, required: true, class: "form-control" %>
+    <% end %>
+
+    <%= ff.label :name, I18n.t("menu_name") %>
+    <%= ff.text_field :name, required: true, class: "form-control" %>
+
+    <%= ff.label :price, I18n.t("menu_price") %>
+    <%= ff.number_field :price, required: true, class: "form-control" %>
+  <% end %>
+
+  <%= f.label :context, I18n.t("post_context") %>
+  <%= f.text_area :context, required: true, rows: 10, class: "form-control" %>
+
+  <%= f.label :may_retry, I18n.t("post_may_retry") %>
+  <%= f.check_box :may_retry %>
+
+  <div>
+    <%= f.submit I18n.t("create"), class: "btn btn-primary my-3" %>
+  </div>
+<% end %>

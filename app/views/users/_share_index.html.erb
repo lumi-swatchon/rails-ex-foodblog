@@ -1,0 +1,22 @@
+<div class="card p-4 mt-5">
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+      <tr>
+        <th><%= I18n.t("user_name") %></th>
+        <th><%= I18n.t("created_at") %></th>
+        <th><%= I18n.t("updated_at") %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% users.each do |user| %>
+        <tr>
+          <td><%= link_to user.name, user_path(user) %></td>
+          <td><%= user.created_at.to_s %></td>
+          <td><%= user.updated_at.to_s %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

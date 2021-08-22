@@ -1,0 +1,38 @@
+ko:
+  users: "사용자"
+  user: "사용자"
+  user_name: "사용자 이름"
+
+  menus: "메뉴"
+  menu: "메뉴"
+  menu_name: "메뉴 이름"
+  menu_price: "가격"
+
+  stores: "음식점"
+  store: "음식점"
+  store_name: "음식점 이름"
+
+  posts: "식사 후기"
+  post: "식사 후기"
+  post_context: "내용"
+  post_may_retry: "재방문 의사 있음"
+  post_may_retry_true: "YES"
+  post_may_retry_false: "NO"
+  new_post: "식사 후기 작성"
+  edit_post: "식사 후기 수정"
+  destroy_post: "식사 후기 삭제"
+  check_destroy: "이 후기를 삭제하는 것을 동의합니다."
+
+  search: "검색"
+  search_results: "검색 결과"
+
+  create: "생성"
+  update: "수정"
+  created_at: "생성시각"
+  updated_at: "수정시각"
+
+  destroy_completed: "삭제완료"
+  invalid_user: "%{user_name}은 수정 불가능한 유저입니다."
+  are_you_sure: "계속하시겠습니까?"
+
+  name: "이름"

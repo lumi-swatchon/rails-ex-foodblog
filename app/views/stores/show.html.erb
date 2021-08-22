@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-3">
+    <%= I18n.t("store_name") %>
+  </div>
+  <div class="col-9">
+    <%= @store.name %>
+  </div>
+
+  <div class="col-3">
+    <%= I18n.t("created_at") %>
+  </div>
+  <div class="col-9">
+    <%= @store.created_at %>
+  </div>
+
+  <div class="col-3">
+    <%= I18n.t("updated_at") %>
+  </div>
+  <div class="col-9">
+    <%= @store.updated_at %>
+  </div>
+</div>
+
+<%= render "/posts/share_index", posts: @posts %>
+<%= render "/users/share_index", users: @users %>
+<%= render "/menus/share_index", menus: @menus %>

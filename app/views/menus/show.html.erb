@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-3">
+    <%= I18n.t("menu_name") %>
+  </div>
+  <div class="col-9">
+    <%= @menu.name %>
+  </div>
+
+  <div class="col-3">
+    <%= I18n.t("menu_price") %>
+  </div>
+  <div class="col-9">
+    <%= number_with_delimiter @menu.price %>
+  </div>
+
+  <div class="col-3">
+    <%= I18n.t("store_name") %>
+  </div>
+  <div class="col-9">
+    <%= link_to @menu.store.name, store_path(@menu.store) %>
+  </div>
+
+  <div class="col-3">
+    <%= I18n.t("created_at") %>
+  </div>
+  <div class="col-9">
+    <%= @menu.created_at %>
+  </div>
+
+  <div class="col-3">
+    <%= I18n.t("updated_at") %>
+  </div>
+  <div class="col-9">
+    <%= @menu.updated_at %>
+  </div>
+</div>
+
+
+<%= render "/posts/share_index", posts: @posts %>
+<%= render "/users/share_index", users: @users %>

@@ -1,0 +1,83 @@
+<div class="row">
+  <div class="col-3">
+    <%= I18n.t("user_name") %>
+  </div>
+  <div class="col-9">
+    <%= link_to @post.user.name, user_path(@post.user) %>
+  </div>
+
+  <div class="col-3">
+    <%= I18n.t("menu_name") %>
+  </div>
+  <div class="col-9">
+    <%= link_to @post.menu.name, menu_path(@post.menu) %>
+  </div>
+  <div class="col-3">
+    <%= I18n.t("menu_price") %>
+  </div>
+  <div class="col-9">
+    <%= number_with_delimiter @post.menu.price %>
+  </div>
+
+  <div class="col-3">
+    <%= I18n.t("store_name") %>
+  </div>
+  <div class="col-9">
+    <%= link_to @post.menu.store.name, store_path(@post.menu.store) %>
+  </div>
+
+  <div class="col-3">
+    <%= I18n.t("post_context") %>
+  </div>
+  <div class="col-9">
+    <%= @post.context %>
+  </div>
+  <div class="col-3">
+    <%= I18n.t("post_may_retry") %>
+  </div>
+  <div class="col-9">
+    <%= I18n.t("post_may_retry_#{@post.may_retry}") %>
+  </div>
+
+  <div class="col-3">
+    <%= I18n.t("created_at") %>
+  </div>
+  <div class="col-9">
+    <%= @post.created_at %>
+  </div>
+
+  <div class="col-3">
+    <%= I18n.t("updated_at") %>
+  </div>
+  <div class="col-9">
+    <%= @post.updated_at %>
+  </div>
+
+  <div class="col-12 mt-5">
+    <%= link_to I18n.t("edit_post"), edit_post_path(@post), class: "btn btn-primary" %>
+    <div class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#destroy-post-modal"><%= I18n.t("destroy_post") %></div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="destroy-post-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><%= I18n.t("destroy_post") %></h4>
+      </div>
+      <%= form_tag post_path(@post), method: :delete, data: { confirm: I18n.t("are_you_sure") } do %>
+        <div class="modal-body">
+          <%= label_tag I18n.t("user_name") %>
+          <%= text_field_tag "post[user_attributes][name]", nil, class: "form-control" %>
+
+          <%= check_box_tag :check_destroy, true, nil, {required: true} %>
+          <%= label_tag I18n.t("check_destroy") %>
+        </div>
+        <div class="modal-footer">
+          <%= submit_tag I18n.t("destroy_post"), class: "btn btn-danger" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

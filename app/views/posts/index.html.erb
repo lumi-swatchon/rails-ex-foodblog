@@ -1,0 +1,65 @@
+<%= search_form_for @q do |f| %>
+  <div class="card p-4">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-3 form-set">
+        <%= f.label :user_name_cont, I18n.t("user_name") %>
+        <%= f.text_field :user_name_cont, class: "form-control" %>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3 form-set">
+        <%= f.label :menu_name_cont, I18n.t("menu_name") %>
+        <%= f.text_field :menu_name_cont, class: "form-control" %>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3 form-set">
+        <%= f.label :menu_store_name_cont, I18n.t("store_name") %>
+        <%= f.text_field :menu_store_name_cont, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row justify-content-end">
+      <div class="col-auto">
+        <%= f.submit t("search"), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="card p-4 mt-5">
+  <h3><%= I18n.t("search_results") %> (<%= @q.result.count %>)</h3>
+
+  <div class="row justify-content-end">
+    <div class="col-auto">
+      <%= link_to I18n.t("new_post"), new_post_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th><%= I18n.t("user_name") %></th>
+        <th><%= I18n.t("menu_name") %></th>
+        <th><%= I18n.t("store_name") %></th>
+        <th><%= I18n.t("post_may_retry") %></th>
+        <th><%= I18n.t("created_at") %></th>
+        <th><%= I18n.t("updated_at") %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= link_to post.id, post_path(post) %></td>
+          <td><%= link_to post.user.name, user_path(post.user) %></td>
+          <td><%= link_to post.menu.name, menu_path(post.menu) %></td>
+          <td><%= link_to post.menu.store.name, store_path(post.menu.store) %></td>
+          <td><%= I18n.t("post_may_retry_#{post.may_retry}") %></td>
+          <td><%= post.created_at.to_s %></td>
+          <td><%= post.updated_at.to_s %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <%= will_paginate @posts %>
+  </div>
+</div>

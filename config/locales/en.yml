@@ -1,0 +1,66 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+en:
+  users: "Users"
+  user: "User"
+  user_name: "User Name"
+
+  menus: "Menus"
+  menu: "Menu"
+  menu_name: "Menu Name"
+  menu_price: "Price"
+
+  stores: "Stores"
+  store: "Store"
+  store_name: "Store Name"
+
+  posts: "식사 후기"
+  post: "식사 후기"
+  post_context: "내용"
+  post_may_retry: "재방문 의사 있음"
+  post_may_retry_true: "YES"
+  post_may_retry_false: "NO"
+  new_post: "식사 후기 작성"
+  edit_post: "식사 후기 수정"
+
+  search: "검색"
+  search_results: "검색 결과"
+
+  create: "생성"
+  update: "수정"
+  created_at: "생성시각"
+  updated_at: "수정시각"
+
+  destroy_completed: "삭제완료"
+  invalid_user: "수정 불가능한 유저입니다."
+
+  name: "이름"

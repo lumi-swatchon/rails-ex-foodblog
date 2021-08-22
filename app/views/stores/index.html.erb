@@ -1,0 +1,43 @@
+<%= search_form_for @q do |f| %>
+  <div class="card p-4">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-3 form-set">
+        <%= f.label :name_cont, I18n.t("name") %>
+        <%= f.text_field :name_cont, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row justify-content-end">
+      <div class="col-auto">
+        <%= f.submit t("search"), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="card p-4 mt-5">
+  <h3><%= I18n.t("search_results") %> (<%= @q.result.count %>)</h3>
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+      <tr>
+        <th><%= I18n.t("name") %></th>
+        <th><%= I18n.t("created_at") %></th>
+        <th><%= I18n.t("updated_at") %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @stores.each do |store| %>
+        <tr>
+          <td><%= link_to store.name, store_path(store) %></td>
+          <td><%= store.created_at.to_s %></td>
+          <td><%= store.updated_at.to_s %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <%= will_paginate @stores %>
+  </div>
+</div>
